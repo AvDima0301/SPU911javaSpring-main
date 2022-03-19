@@ -8,9 +8,9 @@ import DefaultLayout from './components/containers/DefaultLayout';
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<DefaultLayout/>}>
-          <Route index element={<HomePage />} />
+      <Routes>    {/*creating a set of route*/}
+        <Route path="/" element={<DefaultLayout/>}>   {/*creating obj with dafault component*/}
+          <Route index element={<HomePage />} />    {/*creating obj with Home component*/}
         </Route>
       </Routes>
     </>

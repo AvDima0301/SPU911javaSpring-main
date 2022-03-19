@@ -1,7 +1,7 @@
 import "cropperjs/dist/cropper.min.css";
 import * as React from "react";
 import { Modal, Col, Row } from "antd";
-import Cropper from "cropperjs";
+import Cropper from 'cropperjs';
 import { ICropperProps } from "./types";
 
 const CropperModal: React.FC<ICropperProps> = ({
