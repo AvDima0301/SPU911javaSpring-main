@@ -20,10 +20,12 @@ import java.util.List;
 
 @RestController
 public class HomeController {
+    //creating const example of repository, mapper, storageService
     private final AnimalRepository animalRepository;
     private final AnimalMapper animalMapper;
     private final StorageService storageService;
 
+    //initiation const obj
     @Autowired
     public HomeController(AnimalRepository animalRepository,
                           AnimalMapper animalMapper, StorageService storageService) {
@@ -32,12 +34,14 @@ public class HomeController {
         this.storageService=storageService;
     }
 
+    //getting list of animal from db
     @GetMapping("/")
     public List<AnimalEntity> index() {
-        List<AnimalEntity> list = animalRepository.findByName("Єнот");
+        List<AnimalEntity> list = animalRepository.findAll();
         return animalRepository.findAll();
     }
 
+    //adding new obj of animal into db
     @PostMapping("/create")
     public String add(Animal animal)
     {
@@ -46,12 +50,14 @@ public class HomeController {
         return "Додано";
     }
 
+    //return new img name after convert and save in db
     @PostMapping("/upload")
     public String upload(@RequestBody UploadImageDto dto) {
         String image = storageService.save(dto.getBase64());
         return image;
     }
 
+    //convert img by name
     @GetMapping("/files/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) throws Exception {

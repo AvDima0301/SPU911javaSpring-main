@@ -1,6 +1,6 @@
 package app.storage;
 
-public class StorageException extends RuntimeException {
+public class StorageException extends RuntimeException { //creating custom exception for StorageService
 
     public StorageException(String message) {
         super(message);

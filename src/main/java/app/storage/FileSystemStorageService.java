@@ -14,12 +14,13 @@ import java.util.UUID;
 
 @Service
 public class FileSystemStorageService implements StorageService {
-    private final Path rootLocation;
+    private final Path rootLocation; //path to folder with img
 
     public FileSystemStorageService(StorageProperties properties) {
-        this.rootLocation = Paths.get(properties.getLocation());
+        this.rootLocation = Paths.get(properties.getLocation()); //setting path
     }
 
+    //init directories or creating new folder for directories
     @Override
     public void init() {
         try {
@@ -31,6 +32,7 @@ public class FileSystemStorageService implements StorageService {
         }
     }
 
+    //convert img in resource
     @Override
     public Resource loadAsResource(String filename) {
         try {
@@ -48,6 +50,7 @@ public class FileSystemStorageService implements StorageService {
         }
     }
 
+    //creating custom name for img, converting in byte arr, save in selected directories
     @Override
     public String save(String base64) {
         try {

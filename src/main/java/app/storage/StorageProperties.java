@@ -5,6 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("store")
 @Data
-public class StorageProperties {
+public class StorageProperties { //properties for StorageService
     private String location="uploading";
 }

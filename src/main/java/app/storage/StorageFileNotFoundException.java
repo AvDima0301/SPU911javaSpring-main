@@ -1,6 +1,6 @@
 package app.storage;
 
-public class StorageFileNotFoundException extends StorageException {
+public class StorageFileNotFoundException extends StorageException { //creating custom exception for StorageService
 
     public StorageFileNotFoundException(String message) {
         super(message);
